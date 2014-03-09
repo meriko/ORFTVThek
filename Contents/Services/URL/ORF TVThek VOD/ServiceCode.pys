@@ -67,6 +67,10 @@ def PlayVideo(url, partNo):
                         raise Ex.MediaGeoblocked
                     
             raise Ex.MediaNotAvailable
+            
+        else:
+            # This video had less than maximum parts, return filler for the rest
+            return Redirect('http://dl.dropbox.com/u/2974527/Plex/filler.mp4')
 
     else:
         # A specific segment in the episode was selected
@@ -80,5 +84,4 @@ def PlayVideo(url, partNo):
                 
         raise Ex.MediaNotAvailable
 
-    # This video had less than maximum parts, return filler for the rest
-    return Redirect('http://dl.dropbox.com/u/2974527/Plex/filler.mp4')
+   
